@@ -1,0 +1,23 @@
+.editor-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+
+    .editor-title{
+        font-size: 30px;
+        padding: 5px;
+        font-weight: bold;
+        color: aliceblue;
+    }
+
+    button{
+        width:150px;
+        align-self: flex-end;
+        padding: 5px;
+        margin: 20px;
+    }
+}
+
+
+
