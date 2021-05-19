@@ -1,1 +1,9 @@
 node_modules
+.idea/automation.iml
+.idea/aws.xml
+.idea/modules.xml
+.idea/vcs.xml
+client/package-lock.json
+package-lock.json
+client/package-lock.json
+package-lock.json

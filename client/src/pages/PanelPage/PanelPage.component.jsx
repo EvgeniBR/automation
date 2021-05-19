@@ -4,24 +4,24 @@ import Editor from "../../components/Editor/Editor.component";
 import "./PanelPage.styles.scss";
 
 const PanelPage = () => {
-  const [a, setA] = useState("a");
-  const [b, setB] = useState("b");
-  const [testFunction, setTestFunction] = useState(``)
+  // const [a, setA] = useState("a");
+  // const [b, setB] = useState("b");
+  // const [testFunction, setTestFunction] = useState(``)
   const [js, setJS] = useState(`
   const addFunction = (a,b) =>{
      return a+b
   }
-  ${testFunction}
+
   `);
 
   const onTestClick = () => {
     try {
-      console.log('try:',new Function(js)())
-      //setTestFunction(`addFunction(1,1)`)
-      if (new Function(js)() === 2) {
+
+      let testCode = new Function('a','b' , js.slice(js.indexOf('{')+1,js.indexOf('}')))
+      console.log( testCode(1,1))
+      if (testCode(1,1) === 2) {
         console.log("correct");
       } else {
-        //console.log(new Function(js)())
         console.log("wrong");
       }
       //console.log(new Function(js)());
