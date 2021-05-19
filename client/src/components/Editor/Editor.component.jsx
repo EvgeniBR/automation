@@ -6,7 +6,7 @@ import './Editor.styles.scss'
 import {Controlled as ControlledEditor} from 'react-codemirror2'
 
 
-const Editor = ({language,displayName,value,onChange }) => {
+const Editor = ({language,displayName,value,onChange,clickEvent }) => {
 
 
     const handleChange = (editor, data, value) =>{
@@ -29,7 +29,7 @@ const Editor = ({language,displayName,value,onChange }) => {
                     lineNumbers: true,
                 }}
             />
-            <button>Test Code</button>
+            <button onClick={clickEvent}>Test Code</button>
         </div>
     )
 }
