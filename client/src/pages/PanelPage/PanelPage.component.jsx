@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Editor from "../../components/Editor/Editor.component";
+import MonacoEditor from "../../components/MonacoEditor/MonacoEditor.component";
 
 import "./PanelPage.styles.scss";
 
@@ -16,15 +17,16 @@ const PanelPage = () => {
 
   const onTestClick = () => {
     try {
-
       let testCode = new Function('a','b' , js.slice(js.indexOf('{')+1,js.indexOf('}')))
-      console.log( testCode(1,1))
-      if (testCode(1,1) === 2) {
-        console.log("correct");
-      } else {
-        console.log("wrong");
+      const a =(testCode(1,1) === 2) ? true : false;
+      const b =(testCode(1,2) === 3) ? true : false;
+      const c =(testCode('1PX',1) === 2) ? false : true;
+      const d =(testCode(4,1) === 5) ? true : false;
+      if(a&b&c&d){
+        console.log('all tests pased')
+      }else{
+        console.log('somteing wrnog try again')
       }
-      //console.log(new Function(js)());
     } catch (e) {
       console.log("try again");
     }
@@ -33,7 +35,13 @@ const PanelPage = () => {
   return (
     <>
       <div className="pane top-pane">
-        <Editor
+        <fieldset>
+          <legend>Question namber one</legend>
+          <p>write code inside addFunction function that accepts 2 parameters and returns the added value </p>
+        </fieldset>
+      </div>
+      <div className="pane bottom-pane">
+      <Editor
           language="javascript"
           displayName="JS"
           value={js}
@@ -41,14 +49,9 @@ const PanelPage = () => {
           clickEvent={onTestClick}
         />
       </div>
-      <div className="pane"></div>
-      <iframe
-        frameBorder="0"
-        width="100%"
-        height="100%"
-        title="output"
-        sandbox="allow-scripts"
-      />
+      <div className="pane bottom-pane">
+      <MonacoEditor/>
+      </div>
     </>
   );
 };
