@@ -1,0 +1,36 @@
+{
+    "questions": [
+      {
+        "id":"1",
+        "name": "q1",
+        "question": "write a function that returns the sum of two numbers in array of 2 numbers",
+        "firstCode": "const sumTwoNumbers = (arr) =>{ \n    //write your code :-)\n    return arr[0] + arr[1] ; \n }",
+        "tests": [
+          {
+            "value": [1,1],
+            "result": 2
+          },
+          {
+            "value": [-10, -2],
+            "result": -12
+          }
+        ]
+      },
+      {
+        "id":"2",
+        "name": "q2",
+        "question": "write function that return the max value on array",
+        "firstCode": "const maxValueInArr = (arr) =>{ \n    //write your code :-)\n    let max = 0;\n    for(let i=0 ; i < arr.length ; i++){\n        if( max < arr[i]){\n            max = arr[i]\n        }\n }\n  return max\n}",
+        "tests": [
+          {
+            "value": [1, 2, 5, 4, 3],
+            "result": 5
+          },
+          {
+            "value": [-10, -2, -4, -9, -5],
+            "result": -2
+          }
+        ]
+      }
+    ]
+  }
