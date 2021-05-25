@@ -10,7 +10,7 @@ const Header = ({ data: { questions } , history  }) => {
     <div className="header">
       {questions.map((question) => {
         return  <Link className="question-button" key={question.id}  to={{pathname:`/questions/${question.id}`, state:question}}>
-                    {question.name}
+                    {question.name} <span style={{color:`${question.color}`}}>&nbsp;&#11044; </span>&nbsp;
                 </Link>;
       })}
     </div>

@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import Editor from "@monaco-editor/react";
 import "./MonacoEditor.styles.scss";
 
-function MonacoEditor({ firstCode, tests, traficLightEditor }) {
+function MonacoEditor({ firstCode, tests, traficLightEditor,parameters }) {
   const editorRef = useRef(null);
   const [errors, setErrors] = useState("");
 
@@ -21,7 +21,7 @@ function MonacoEditor({ firstCode, tests, traficLightEditor }) {
   const testFunction = async () => {
     try {
       let testCode = new Function(
-        "arr",
+        `${parameters}`,
         editorRef.current
           .getValue()
           .slice(
@@ -55,7 +55,7 @@ function MonacoEditor({ firstCode, tests, traficLightEditor }) {
     }
   };
   return (
-    <>
+    <div className="editor-container">
       <Editor
         value={firstCode}
         theme="vs-dark"
@@ -69,7 +69,7 @@ function MonacoEditor({ firstCode, tests, traficLightEditor }) {
       <button onClick={testFunction}>Show value</button>
 
       <div className={"new-line"}>{errors}</div>
-    </>
+    </div>
   );
 }
 

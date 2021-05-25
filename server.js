@@ -2,11 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const path = require('path');
-const os = require('os');
+
 app.use(cors());
 const port = 8000;
 
-app.get('/api/getUser', (req, res) => res.send({ username: os.userInfo().username }));
+
 
 if (process.env.NODE_ENV === 'production') {
     // Exprees will serve up production assets
