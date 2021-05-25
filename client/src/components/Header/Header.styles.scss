@@ -1,11 +1,17 @@
 .header{
-    background: grey;
+    background: #3C3E44;
     height: 5vh;
     width: 100vw;
+    display: flex;
 
 
-
+    
     .question-button{
-
+        color:white;
+        text-decoration: none;
+        background: #4e5057;
+        padding: 5px;
+        width: 80px;
+        margin: 5px 10px;       
     }
 }

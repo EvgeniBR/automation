@@ -5,6 +5,7 @@ import "./Header.styles.scss";
 
 const Header = ({ data: { questions } , history  }) => {
 
+    
   return (
     <div className="header">
       {questions.map((question) => {
