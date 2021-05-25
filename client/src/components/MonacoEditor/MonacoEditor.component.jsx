@@ -4,6 +4,7 @@ import Editor from "@monaco-editor/react";
 import "./MonacoEditor.styles.scss";
 
 function MonacoEditor({ firstCode, tests, traficLightEditor,parameters }) {
+
   const editorRef = useRef(null);
   const [errors, setErrors] = useState("");
 
@@ -11,9 +12,19 @@ function MonacoEditor({ firstCode, tests, traficLightEditor,parameters }) {
     editorRef.current = editor;
   }
 
+  function runMe() {
+    console.log("asfasf");
+  }
   const checkTest = (index, value, result, func) => {
+
+   let testParams =  Object.values(value).map((k)=>{
+      return Number(k);
+    })
+
+    // console.log("s : ",s.split(','));
+    // console.log("func(s) :",func(1,2));
     let errorsList = "";
-    if (func(value) === result) errorsList += `test ${index} success`;
+    if (func.apply(null,testParams) === result) errorsList += `test ${index} success`;
     else errorsList += `test ${index} failed with value : ${value}`;
     return errorsList + "\n";
   };
